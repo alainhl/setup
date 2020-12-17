@@ -3,7 +3,7 @@ x-redash-service: &redash-service
   image: redash/redash:8.0.0.b32245
   depends_on:
     - postgres
-    - redis
+    #- redis
   env_file: /opt/redash/env
   restart: always
 services:
@@ -32,9 +32,9 @@ services:
     environment:
       QUEUES: "queries"
       WORKERS_COUNT: 2
-  redis:
-    image: redis:5.0-alpine
-    restart: always
+  #redis:
+  #  image: redis:5.0-alpine
+  #  restart: always
   postgres:
     image: postgres:9.6-alpine
     env_file: /opt/redash/env
